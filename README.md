@@ -1,7 +1,7 @@
 <h1 align="center">🌐 Sapper with PostCSS project base</h1>
 
 ## ❓ What is this?
-This is a relatively lightweight extension to the [official Sapper Rollup template](https://github.com/sveltejs/sapper-template-rollup) with support for PostCSS inside Svelte components.
+This is a relatively lightweight extension to the [official Sapper Rollup template](https://github.com/sveltejs/sapper-template-rollup) with support for PostCSS inside Svelte components. You are also recommended to check out [@nhristov's similar template](https://github.com/nhristov/sapper-template-rollup).
 
 If you're looking for something with much, much more bundled in, check out [my opinionated project base](https://github.com/babichjacob/sapper-firebase-typescript-graphql-tailwindcss-actions-template).
 * [Sapper for Svelte](https://sapper.svelte.dev/)
