@@ -43,6 +43,19 @@ npm run dev
 npm run prod
 ```
 
+## ⚙ Configuration
+### 💨 Optionally removing Tailwind CSS
+1. Remove all Tailwind directives in the `src/global.pcss` file
+2. Remove the `require("tailwindcss")("./tailwind.config.js"),` line in `postcss.config.js`
+3. Delete the `tailwind.config.js` file
+4. Because PurgeCSS is bundled with Tailwind CSS, if you want to reinstate it then add this plugin to the end of your PostCSS plugins list (in `postcss.config.js`):
+```js
+!dev && require("@fullhuman/postcss-purgecss")({
+    content: ["./src/**/*.svelte", "./src/**/*.html"],
+    defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:\/\.]+/g) || [], // eslint-disable-line no-useless-escape
+}),
+```
+
 ## 😵 Help! I have a question
 [Create an issue](https://github.com/babichjacob/sapper-postcss-template/issues/new) and I'll try to help.
 
