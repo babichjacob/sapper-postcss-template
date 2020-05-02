@@ -55,7 +55,24 @@ npm run prod
 ```js
 !dev && require("@fullhuman/postcss-purgecss")({
     content: ["./src/**/*.svelte", "./src/**/*.html"],
-    defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:\/\.]+/g) || [], // eslint-disable-line no-useless-escape
+    defaultExtractor: (content) => {
+        let matching = [];
+
+        const regulars = content.match(/[\w-/:%]+(?<!:)/g);
+        const classDirectives = content.match(
+            /(?<=class:)[\w-/:%]+(?<!:)/g
+        );
+
+        if (regulars) {
+            matching.push(...regulars);
+        }
+
+        if (classDirectives) {
+            matching.push(...classDirectives);
+        }
+
+        return matching;
+    },
 }),
 ```
 
