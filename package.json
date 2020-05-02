@@ -6,7 +6,7 @@
     "url": "https://github.com/babichjacob/sapper-postcss-template.git"
   },
   "license": "MIT",
-  "version": "2020.05.01",
+  "version": "2020.05.02",
   "scripts": {
     "eslint": "eslint",
     "eslint:fix": "eslint --fix ./src/*.js ./*.js ./src/routes/*.svelte ./src/components/*.svelte",
@@ -38,6 +38,7 @@
     "eslint-plugin-svelte3": "^2.7.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^7.0.27",
+    "postcss-import": "^12.0.1",
     "postcss-load-config": "^2.1.0",
     "postcss-preset-env": "^6.7.0",
     "rollup": "^1.20.0",

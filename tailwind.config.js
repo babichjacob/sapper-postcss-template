@@ -20,6 +20,7 @@ module.exports = {
 	},
 	variants: {},
 	plugins: [
-		require("@tailwindcss/ui"),
+		// 🐛 infinite recursion during development
+		// require("@tailwindcss/ui"),
 	],
 };

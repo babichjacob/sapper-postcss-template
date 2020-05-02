@@ -5,7 +5,9 @@
 	$: path = $page.path.slice(1);
 </script>
 
-<style lang="postcss" src="../global.pcss" global></style>
+<style lang="postcss" global>
+	@import "../global.pcss";
+</style>
 
 <svelte:head>
 	<title>

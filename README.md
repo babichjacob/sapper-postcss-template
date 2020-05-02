@@ -2,11 +2,14 @@
 
 ## ❓ What is this?
 This is a relatively lightweight extension to the [official Sapper Rollup template](https://github.com/sveltejs/sapper-template-rollup) with support for PostCSS inside Svelte components.
+
+If you're looking for something with much, much more bundled in, check out [my opinionated project base](https://github.com/babichjacob/sapper-firebase-typescript-graphql-tailwindcss-actions-template).
 * [Sapper for Svelte](https://sapper.svelte.dev/)
   * [Official VS Code Plugin (beta)](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
   * [Type Checker VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=halfnelson.svelte-type-checker-vscode)
 * [PostCSS](https://postcss.org/)
   * [Tailwind CSS](https://tailwindcss.com/)
+  * [postcss-import](https://github.com/postcss/postcss-import)
   * [PurgeCSS](https://www.purgecss.com/)
   * [CSSNano](https://cssnano.co/)
   * Inside Svelte components, thanks to [`svelte-preprocess`](https://github.com/kaisermann/svelte-preprocess)
@@ -45,10 +48,10 @@ npm run prod
 
 ## ⚙ Configuration
 ### 💨 Optionally removing Tailwind CSS
-1. Remove all Tailwind directives in the `src/global.pcss` file
+1. Remove all Tailwind imports in the `src/global.pcss` file
 2. Remove the `require("tailwindcss")("./tailwind.config.js"),` line in `postcss.config.js`
 3. Delete the `tailwind.config.js` file
-4. Because PurgeCSS is bundled with Tailwind CSS, if you want to reinstate it then add this plugin to the end of your PostCSS plugins list (in `postcss.config.js`):
+4. Because PurgeCSS is bundled with Tailwind CSS, if you want to reinstate it then install `@fullhuman/postcss-purgecss` and add this to the end of your PostCSS plugins list (in `postcss.config.js`):
 ```js
 !dev && require("@fullhuman/postcss-purgecss")({
     content: ["./src/**/*.svelte", "./src/**/*.html"],
