@@ -35,27 +35,27 @@ Click the `Use this template` button on [this project's GitHub page](https://git
 
 ### ⬇️ Install Dependencies
 
-```sh
+```shell
 cd sapper-postcss-template
 npm install
 ```
 
 ## 🛠 Usage
 
-### 🔄 Development
+### 🧪 Development
 
-```sh
+```shell
 npm run dev
 ```
 
-### 📦 Building for Production
+### 🔨 Building for Production
 
-```sh
+```shell
 npm run prod
 ```
 
-### 📝 Exporting static site
-
+### 📦 Exporting a Static Site
+If you do not need to include heavy Babel transforms and polyfills to support old browsers on your site, then remove the `--legacy` flag in the `export` package script to lighten it up.
 ```shell
 npm run export
 ```
