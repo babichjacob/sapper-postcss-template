@@ -13,7 +13,8 @@
     "sapper": "sapper",
     "sapper:build": "cross-env NODE_ENV=production sapper build",
     "dev": "sapper dev",
-    "prod": "run-s sapper:build"
+    "prod": "run-s sapper:build",
+    "export": "cross-env NODE_ENV=production sapper export --legacy"
   },
   "dependencies": {
     "compression": "^1.7.1",
