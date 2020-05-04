@@ -11,10 +11,7 @@ View the full documentation at https://tailwindcss.com.
 
 /* eslint-disable global-require */
 module.exports = {
-	purge: [
-		"./src/**/*.svelte",
-		"./src/**/*.html",
-	],
+	purge: false, // Purging is taken care of in postcss.config.js
 	theme: {
 		extend: {},
 	},

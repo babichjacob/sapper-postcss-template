@@ -27,6 +27,12 @@
                 "allowIndentationTabs": true
             }
         ],
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
         "quotes": [
             "error",
             "double"

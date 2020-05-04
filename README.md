@@ -49,7 +49,7 @@ npm run dev
 ```
 
 ### 🔨 Building for Production
-
+If you do not need to include heavy Babel transforms and polyfills to support old browsers on your site, then remove the `--legacy` flag in the `build` package script to lighten it up.
 ```shell
 npm run prod
 ```
@@ -67,14 +67,7 @@ npm run export
 1. Remove all Tailwind imports in the `src/global.pcss` file
 2. Remove the `require("tailwindcss")("./tailwind.config.js"),` line in `postcss.config.js`
 3. Delete the `tailwind.config.js` file
-4. Because PurgeCSS is bundled with Tailwind CSS, if you want to reinstate it then install `@fullhuman/postcss-purgecss` and add this to the end of your PostCSS plugins list (in `postcss.config.js`):
-
-```js
-!dev && require("@fullhuman/postcss-purgecss")({
-    content: ["./src/**/*.svelte", "./src/**/*.html"],
-    defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:\/\.]+/g) || [], // eslint-disable-line no-useless-escape
-}),
-```
+4. Uninstall the `tailwindcss` package
 
 ## 😵 Help! I have a question
 

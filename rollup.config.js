@@ -64,6 +64,9 @@ export default {
 		],
 
 		onwarn,
+
+		// https://github.com/babichjacob/sapper-postcss-template/pull/5#issuecomment-623172265
+		preserveEntrySignatures: "strict",
 	},
 
 	server: {
