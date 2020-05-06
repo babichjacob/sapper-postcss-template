@@ -32,7 +32,7 @@ export default {
 					preprocess,
 				],
 				css: (css) => {
-					css.write("static/main.css");
+					css.write("static/main.css", false);
 				},
 			}),
 			resolve({
