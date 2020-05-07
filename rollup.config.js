@@ -31,9 +31,7 @@ export default {
 				preprocess: [
 					preprocess,
 				],
-				css: (css) => {
-					css.write("static/main.css", false);
-				},
+
 			}),
 			resolve({
 				browser: true,
@@ -71,7 +69,7 @@ export default {
 
 	server: {
 		input: config.server.input(),
-		output: config.server.output(),
+		output: { ...config.server.output(), sourcemap: !dev },
 		plugins: [
 			replace({
 				"process.browser": false,
