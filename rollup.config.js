@@ -11,6 +11,7 @@ const { preprocess } = require("./svelte.config");
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
+const sourcemap = !dev;
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn_) => (warning.code === "CIRCULAR_DEPENDENCY" && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn_(warning);
@@ -28,10 +29,7 @@ export default {
 				dev,
 				hydratable: true,
 				emitCss: true,
-				preprocess: [
-					preprocess,
-				],
-
+				preprocess,
 			}),
 			resolve({
 				browser: true,
@@ -69,7 +67,7 @@ export default {
 
 	server: {
 		input: config.server.input(),
-		output: { ...config.server.output(), sourcemap: !dev },
+		output: { ...config.server.output(), sourcemap },
 		plugins: [
 			replace({
 				"process.browser": false,
@@ -78,9 +76,7 @@ export default {
 			svelte({
 				generate: "ssr",
 				dev,
-				preprocess: [
-					preprocess,
-				],
+				preprocess,
 			}),
 			resolve({
 				dedupe: ["svelte"],
