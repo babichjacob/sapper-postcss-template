@@ -1,7 +1,8 @@
-const preprocess = require("svelte-preprocess");
+import preprocess from "svelte-preprocess";
+import postcss from "./postcss.config";
 
-module.exports = {
+export default {
 	preprocess: preprocess({
-		postcss: true,
+		postcss,
 	}),
 };
