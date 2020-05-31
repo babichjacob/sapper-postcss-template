@@ -1,8 +1,6 @@
-import preprocess from "svelte-preprocess";
+import sveltePreprocess from "svelte-preprocess";
 import postcss from "./postcss.config";
 
-export default {
-	preprocess: preprocess({
-		postcss,
-	}),
-};
+export const preprocess = sveltePreprocess({
+	postcss,
+});

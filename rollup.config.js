@@ -2,14 +2,14 @@ import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import commonjs from "@rollup/plugin-commonjs";
 import svelte from "rollup-plugin-svelte";
-import babel from "rollup-plugin-babel";
+import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup";
 import pkg from "./package.json";
-import svelteConfig from "./svelte.config";
+import { preprocess as sveltePreprocessConfig } from "./svelte.config";
 
 const preprocess = [
-	svelteConfig.preprocess,
+	sveltePreprocessConfig,
 	// You could have more preprocessors, like MDsveX
 ];
 
@@ -18,7 +18,8 @@ const dev = mode === "development";
 const sourcemap = dev ? "inline" : false;
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
-const onwarn = (warning, onwarn_) => (warning.code === "CIRCULAR_DEPENDENCY" && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn_(warning);
+// Workaround for https://github.com/sveltejs/sapper/issues/1221
+const onwarn = (warning, _onwarn) => (warning.code === "CIRCULAR_DEPENDENCY" && /[/\\]@sapper[/\\]/.test(warning.message)) || console.warn(warning.toString());
 
 export default {
 	client: {
@@ -43,7 +44,7 @@ export default {
 
 			legacy && babel({
 				extensions: [".js", ".mjs", ".html", ".svelte"],
-				runtimeHelpers: true,
+				babelHelpers: "runtime",
 				exclude: ["node_modules/@babel/**"],
 				presets: [
 					["@babel/preset-env", {
@@ -63,10 +64,8 @@ export default {
 			}),
 		],
 
+		preserveEntrySignatures: false,
 		onwarn,
-
-		// https://github.com/babichjacob/sapper-postcss-template/pull/5#issuecomment-623172265
-		preserveEntrySignatures: "strict",
 	},
 
 	server: {
@@ -91,6 +90,7 @@ export default {
 			require("module").builtinModules || Object.keys(process.binding("natives")), // eslint-disable-line global-require
 		),
 
+		preserveEntrySignatures: "strict",
 		onwarn,
 	},
 
@@ -107,6 +107,7 @@ export default {
 			!dev && terser(),
 		],
 
+		preserveEntrySignatures: false,
 		onwarn,
 	},
 };
