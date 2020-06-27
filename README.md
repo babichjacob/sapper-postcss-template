@@ -7,7 +7,7 @@ This is an extension to the [official Sapper Rollup template](https://github.com
 If you're looking for something with much, much more bundled in, check out [my opinionated project base](https://github.com/babichjacob/sapper-firebase-typescript-graphql-tailwindcss-actions-template).
 
 - [Sapper for Svelte](https://sapper.svelte.dev/)
-  - [Official VS Code Plugin (beta)](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+  - [Official VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 - [PostCSS](https://postcss.org/)
   - [Tailwind CSS](https://tailwindcss.com/)
   - [postcss-import](https://github.com/postcss/postcss-import)
