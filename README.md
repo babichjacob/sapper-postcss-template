@@ -37,6 +37,8 @@ Click the `Use this template` button on [this project's GitHub page](https://git
 
 ### ⬇️ Install Dependencies
 
+You need to be using version 12 or higher of Node.
+
 ```sh
 cd sapper-postcss-template
 npm install  # pnpm also works
