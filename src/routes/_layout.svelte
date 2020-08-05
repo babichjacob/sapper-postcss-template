@@ -12,7 +12,7 @@
 	$: path = $page.path.slice(1);
 </script>
 
-<style lang="postcss" global>
+<style global>
 	@import "../global.pcss";
 </style>
 

@@ -2,7 +2,7 @@
 	import ExampleComponent from "../components/ExampleComponent.svelte";
 </script>
 
-<style lang="postcss">
+<style>
 	.centerer {
 		@apply flex-1 flex flex-col items-center justify-center;
 	}

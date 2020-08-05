@@ -9,8 +9,10 @@ import sveltePreprocess from "svelte-preprocess";
 import pkg from "./package.json";
 import * as postcss from "./postcss.config";
 
+const { defaults } = require("./svelte.config.js");
+
 const preprocess = [
-	sveltePreprocess({ postcss }),
+	sveltePreprocess({ defaults, postcss }),
 	// You could have more preprocessors, like MDsveX
 ];
 
