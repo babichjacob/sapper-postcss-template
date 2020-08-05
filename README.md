@@ -74,7 +74,7 @@ npm run export
        import tailwindcss from "tailwindcss";
        ```
     3. ```js
-       import tailwindcssConfig from "./tailwind.config";
+       import * as tailwindcssConfig from "./tailwind.config";
        ```
     3. ```js
        tailwindcss(tailwindcssConfig),
