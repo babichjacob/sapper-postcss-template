@@ -80,7 +80,7 @@ npm run export
        tailwindcss(tailwindcssConfig),
        ```
 3. Delete the `tailwind.config.js` file
-4. Uninstall the `tailwindcss` package
+4. Uninstall the `tailwindcss` and `@tailwindcss/ui` packages
 
 ### ⚡ Web app
 Many of the fields in `static/manifest.json` (`short_name`, `name`, `description`, `categories`, `theme_color`, and `background_color`) are filled with demonstrative values that won't match your site. Similarly, you've got to take new screenshots to replace the included `static/screenshot-1.png` file. If you want, you can add [app shortcut definitions for "add to home screen" on Android](https://web.dev/app-shortcuts/#define-app-shortcuts-in-the-web-app-manifest). Once you change `theme_color`, update the `meta name="theme-color"` tag in `src/template.html` to match.
