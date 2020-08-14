@@ -1,3 +1,7 @@
+<script context="module">
+	export const preload = () => {};
+</script>
+
 <script>
 	import { stores } from "@sapper/app";
 
