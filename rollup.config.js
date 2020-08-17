@@ -43,7 +43,9 @@ export default {
 				browser: true,
 				dedupe: ["svelte"],
 			}),
-			commonjs(),
+			commonjs({
+				sourceMap: !!sourcemap,
+			}),
 
 			legacy && babel({
 				extensions: [".js", ".mjs", ".html", ".svelte"],
@@ -87,7 +89,9 @@ export default {
 			resolve({
 				dedupe: ["svelte"],
 			}),
-			commonjs(),
+			commonjs({
+				sourceMap: !!sourcemap,
+			}),
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require("module").builtinModules || Object.keys(process.binding("natives")), // eslint-disable-line global-require
@@ -106,7 +110,9 @@ export default {
 				"process.browser": true,
 				"process.env.NODE_ENV": JSON.stringify(mode),
 			}),
-			commonjs(),
+			commonjs({
+				sourceMap: !!sourcemap,
+			}),
 			!dev && terser(),
 		],
 
