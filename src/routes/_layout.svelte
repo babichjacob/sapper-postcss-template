@@ -10,7 +10,7 @@
 	// https://github.com/sveltejs/sapper/issues/824
 	export let segment;
 	// Silence unused export property warning
-	if (segment) {};
+	if (segment) {}
 
 	const { page } = stores();
 	$: path = $page.path.slice(1);

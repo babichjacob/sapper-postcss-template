@@ -29,7 +29,6 @@ self.addEventListener("activate", (event) => { // eslint-disable-line no-shadow,
 				if (key !== ASSETS) await caches.delete(key); // eslint-disable-line no-await-in-loop
 			}
 
-
 			self.clients.claim();
 		}),
 	);
