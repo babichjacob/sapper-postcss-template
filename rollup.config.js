@@ -103,7 +103,7 @@ export default {
 
 	serviceworker: {
 		input: config.serviceworker.input(),
-		output: config.serviceworker.output(),
+		output: { ...config.serviceworker.output(), sourcemap },
 		plugins: [
 			resolve(),
 			replace({
