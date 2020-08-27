@@ -16,7 +16,7 @@
     "url": "https://github.com/babichjacob/sapper-postcss-template.git"
   },
   "license": "MIT",
-  "version": "2020.08.20",
+  "version": "2020.08.27",
   "scripts": {
     "eslint": "eslint",
     "eslint:fix": "eslint --fix ./*.js ./src/*.js ./src/routes/**/*.svelte ./src/components/**/*.svelte",

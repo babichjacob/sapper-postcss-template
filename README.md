@@ -7,9 +7,10 @@ This is an extension to the [official Sapper Rollup template](https://github.com
 If you're looking for something with much, much more bundled in, check out [my opinionated project base](https://github.com/babichjacob/sapper-firebase-typescript-graphql-tailwindcss-actions-template).
 
 - [Sapper for Svelte](https://sapper.svelte.dev/)
-  - [Official VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+  - [Official VS Code Extension](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 - [PostCSS](https://postcss.org/)
   - [Tailwind CSS](https://tailwindcss.com/)
+    - [Official VS Code Extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
   - [postcss-import](https://github.com/postcss/postcss-import)
   - [PurgeCSS](https://www.purgecss.com/)
   - [CSSNano](https://cssnano.co/)
@@ -18,7 +19,7 @@ If you're looking for something with much, much more bundled in, check out [my o
   - [`manifest.json`](https://developer.mozilla.org/en-US/docs/Web/Manifest)'s most important fields filled out
   - High [Lighthouse](https://developers.google.com/web/tools/lighthouse) audit score
 - [ESLint](https://eslint.org/)
-  - [VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - `eslint:fix` package script
 
 ## 📋 Copy
@@ -71,10 +72,10 @@ npm run export
 1. Remove all Tailwind imports in the `src/global.pcss` file
 2. Remove these lines in `postcss.config.js`:
     1. ```js
-       import tailwindcss from "tailwindcss";
+       const tailwindcss = require("tailwindcss");
        ```
     3. ```js
-       import * as tailwindcssConfig from "./tailwind.config";
+       const tailwindcssConfig = require("./tailwind.config");
        ```
     3. ```js
        tailwindcss(tailwindcssConfig),
