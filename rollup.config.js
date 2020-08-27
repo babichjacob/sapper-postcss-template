@@ -1,8 +1,11 @@
+import { spawn } from "child_process";
+import { performance } from "perf_hooks";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import commonjs from "@rollup/plugin-commonjs";
 import svelte from "rollup-plugin-svelte";
 import babel from "@rollup/plugin-babel";
+import colors from "kleur";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup";
 import pkg from "./package.json";
@@ -60,6 +63,44 @@ export default {
 			!dev && terser({
 				module: true,
 			}),
+
+			(() => {
+				let builder;
+				const buildGlobalCSS = () => {
+					if (builder) return;
+					const start = performance.now();
+
+					try {
+						builder = spawn("node", ["--unhandled-rejections=strict", "build-global-css.mjs", sourcemap]);
+						builder.stdout.pipe(process.stdout);
+						builder.stderr.pipe(process.stderr);
+						builder.on("close", (code) => {
+							if (code === 0) {
+								const elapsed = parseInt(performance.now() - start, 10);
+								console.log(`${colors.bold().green("✔ global css")} (src/global.pcss → static/global.css${sourcemap === true ? " + static/global.css.map" : ""}) ${colors.gray(`(${elapsed}ms)`)}`);
+							} else if (code !== null) {
+								console.error(`global css builder exited with code ${code}`);
+								console.log(colors.bold().red("✗ global css"));
+							}
+							builder = undefined;
+						});
+					} catch (err) {
+						console.log(colors.bold().red("✗ global css"));
+						console.error(err);
+					}
+				};
+
+				return {
+					name: "build-global-css",
+					buildStart() {
+						buildGlobalCSS();
+						this.addWatchFile("postcss.config.js");
+						this.addWatchFile("tailwind.config.js");
+						this.addWatchFile("src/global.pcss");
+					},
+					generateBundle: buildGlobalCSS,
+				};
+			})(),
 		],
 
 		preserveEntrySignatures: false,
