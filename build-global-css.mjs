@@ -1,7 +1,9 @@
-import { readFile, unlink, writeFile } from "fs/promises";
+import fs from "fs";
 import postcss from "postcss";
 // eslint-disable-next-line import/extensions
 import postcssConfig from "./postcss.config.js";
+
+const { readFile, unlink, writeFile } = fs.promises;
 
 const main = async () => {
 	let sourcemap = process.argv[process.argv.length - 1];

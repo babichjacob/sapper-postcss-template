@@ -71,7 +71,7 @@ export default {
 					const start = performance.now();
 
 					try {
-						builder = spawn("node", ["--unhandled-rejections=strict", "build-global-css.mjs", sourcemap]);
+						builder = spawn("node", ["--experimental-modules", "--unhandled-rejections=strict", "build-global-css.mjs", sourcemap]);
 						builder.stdout.pipe(process.stdout);
 						builder.stderr.pipe(process.stderr);
 						builder.on("close", (code) => {
