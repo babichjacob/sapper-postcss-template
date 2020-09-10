@@ -10,12 +10,17 @@ import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup";
 import pkg from "./package.json";
 
-const { preprocess } = require("./svelte.config.js");
+const { createPreprocessors } = require("./svelte.config.js");
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const sourcemap = dev ? "inline" : false;
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+
+const preprocess = createPreprocessors({ sourceMap: !!sourcemap });
+
+// Changes in these files will trigger a rebuild of the global CSS
+const globalCSSWatchFiles = ["postcss.config.js", "tailwind.config.js", "src/global.pcss"];
 
 // Workaround for https://github.com/sveltejs/sapper/issues/1266
 const onwarn = (warning, _onwarn) => (warning.code === "CIRCULAR_DEPENDENCY" && /[/\\]@sapper[/\\]/.test(warning.message)) || console.warn(warning.toString());
@@ -66,14 +71,21 @@ export default {
 
 			(() => {
 				let builder;
+				let rebuildNeeded = false;
+
 				const buildGlobalCSS = () => {
-					if (builder) return;
+					if (builder) {
+						rebuildNeeded = true;
+						return;
+					}
+					rebuildNeeded = false;
 					const start = performance.now();
 
 					try {
 						builder = spawn("node", ["--experimental-modules", "--unhandled-rejections=strict", "build-global-css.mjs", sourcemap]);
 						builder.stdout.pipe(process.stdout);
 						builder.stderr.pipe(process.stderr);
+
 						builder.on("close", (code) => {
 							if (code === 0) {
 								const elapsed = parseInt(performance.now() - start, 10);
@@ -82,7 +94,13 @@ export default {
 								console.error(`global css builder exited with code ${code}`);
 								console.log(colors.bold().red("✗ global css"));
 							}
+
 							builder = undefined;
+
+							if (rebuildNeeded) {
+								console.log(`\n${colors.bold().italic().cyan("something")} changed. rebuilding...`);
+								buildGlobalCSS();
+							}
 						});
 					} catch (err) {
 						console.log(colors.bold().red("✗ global css"));
@@ -94,9 +112,7 @@ export default {
 					name: "build-global-css",
 					buildStart() {
 						buildGlobalCSS();
-						this.addWatchFile("postcss.config.js");
-						this.addWatchFile("tailwind.config.js");
-						this.addWatchFile("src/global.pcss");
+						globalCSSWatchFiles.forEach((file) => this.addWatchFile(file));
 					},
 					generateBundle: buildGlobalCSS,
 				};
