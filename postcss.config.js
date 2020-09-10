@@ -1,6 +1,5 @@
 const cssnano = require("cssnano");
 const postcssImport = require("postcss-import");
-const postcssPurgecss = require("@fullhuman/postcss-purgecss");
 const tailwindcss = require("tailwindcss");
 const tailwindcssConfig = require("./tailwind.config");
 
@@ -13,12 +12,8 @@ module.exports = {
 
 		tailwindcss(tailwindcssConfig),
 
-		// More plugins for polyfills and the like (such as postcss-preset-env) should generally go here
-
-		!dev && postcssPurgecss({
-			content: ["./src/**/*.svelte", "./src/**/*.html"],
-			defaultExtractor: (content) => [...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(([_match, group, ..._rest]) => group),
-		}),
+		// Plugins for polyfills and the like (such as postcss-preset-env) should generally go here
+		// but a few (like postcss-nested) have to run before Tailwind
 
 		!dev && cssnano({
 			preset: [
