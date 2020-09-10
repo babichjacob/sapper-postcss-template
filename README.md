@@ -67,7 +67,7 @@ npm run export
 
 ## ⚙ Configuration
 
-### 💨 Optionally removing Tailwind CSS
+### 💨 Optionally removing Tailwind CSS (and PurgeCSS)
 
 1. Remove all Tailwind imports in the `src/global.pcss` file
 2. Remove these lines in `postcss.config.js`:
