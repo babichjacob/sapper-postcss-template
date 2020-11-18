@@ -1,7 +1,6 @@
 <h1 align="center">🌐 Sapper with PostCSS project base</h1>
 
 ## ❓ What is this?
-
 This is an extension to the [official Sapper Rollup template](https://github.com/sveltejs/sapper-template-rollup) with support for PostCSS inside Svelte components. You are also recommended to check out [@nhristov's similar template](https://github.com/nhristov/sapper-template-rollup).
 
 If you're looking for something with much, much more bundled in, check out [my opinionated project base](https://github.com/babichjacob/sapper-firebase-typescript-graphql-tailwindcss-actions-template).
@@ -52,21 +51,17 @@ So this is what's going to happen.
 **Read on to use this project base today:**
 
 ## 📋 Copy
-
 Choose either to clone or fork depending on your preference.
 
 ### 🐑 Clone
-
 ```sh
 git clone https://github.com/babichjacob/sapper-postcss-template
 ```
 
 ### 🍴 Fork
-
 Click the `Use this template` button on [this project's GitHub page](https://github.com/babichjacob/sapper-postcss-template).
 
 ### ⬇️ Install Dependencies
-
 You need to be using version 12 or higher of Node.
 
 ```sh
@@ -94,7 +89,6 @@ npm run export
 ## ⚙ Configuration
 
 ### 💨 Optionally removing Tailwind CSS (and PurgeCSS)
-
 1. Remove all Tailwind imports in the `src/global.pcss` file
 2. Remove these lines in `postcss.config.js`:
     1. ```js
@@ -107,7 +101,7 @@ npm run export
        tailwindcss(tailwindcssConfig),
        ```
 3. Delete the `tailwind.config.js` file
-4. Uninstall the `tailwindcss` and `@tailwindcss/ui` packages
+4. Uninstall the `tailwindcss` package
 
 ### ⚡ Web app
 Many of the fields in `static/manifest.json` (`short_name`, `name`, `description`, `categories`, `theme_color`, and `background_color`) are filled with demonstrative values that won't match your site. Similarly, you've got to take new screenshots to replace the included `static/screenshot-1.png` file. If you want, you can add [app shortcut definitions for "add to home screen" on Android](https://web.dev/app-shortcuts/#define-app-shortcuts-in-the-web-app-manifest). Once you change `theme_color`, update the `meta name="theme-color"` tag in `src/template.html` to match.
