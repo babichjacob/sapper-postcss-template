@@ -32,7 +32,6 @@ But, once we move on, I won't be creating project bases (templates / boilerplate
 npm init svelte@next  # Use the official template from create-svelte
 npx use-preset babichjacob/svelte-add-postcss  # Apply the changes to set up PostCSS for create-svelte
 npx use-preset babichjacob/svelte-add-tailwindcss  # Apply the changes to set up Tailwind CSS for create-svelte as long as PostCSS is already set up
-# Remember, the above are hypothetical commands and the real ones might look and work different
 ```
 
 This should have the same result as cloning a project base, but there are more reasons to reach for this solution:
