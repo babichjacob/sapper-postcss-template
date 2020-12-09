@@ -40,7 +40,7 @@ git clone https://github.com/babichjacob/sapper-postcss-template
 Click the `Use this template` button on [this project's GitHub page](https://github.com/babichjacob/sapper-postcss-template).
 
 ### ⬇️ Install Dependencies
-You need to be using version 12 or higher of Node.
+You need to be using version 14.15 or higher of Node.
 
 ```sh
 cd sapper-postcss-template
