@@ -3,8 +3,6 @@
 ## ❓ What is this?
 This is an extension to the [official Sapper Rollup template](https://github.com/sveltejs/sapper-template-rollup) with support for PostCSS inside Svelte components. You are also recommended to check out [@nhristov's similar template](https://github.com/nhristov/sapper-template-rollup).
 
-If you're looking for something with much, much more bundled in, check out [my opinionated project base](https://github.com/babichjacob/sapper-firebase-typescript-graphql-tailwindcss-actions-template).
-
 - [Sapper for Svelte](https://sapper.svelte.dev/)
   - [Official VS Code Extension](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 - [PostCSS](https://postcss.org/)
@@ -20,6 +18,8 @@ If you're looking for something with much, much more bundled in, check out [my o
 - [ESLint](https://eslint.org/)
   - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - `eslint:fix` package script
+
+If you're looking for something with much, much more bundled in, check out [my opinionated project base](https://github.com/babichjacob/sapper-firebase-typescript-graphql-tailwindcss-actions-template).
 
 ## 🧭 Project Status
 **This project base will continue to be maintained** [until SvelteKit is ready](https://svelte.dev/blog/whats-the-deal-with-sveltekit). 
