@@ -16,7 +16,7 @@
     "url": "https://github.com/babichjacob/sapper-postcss-template.git"
   },
   "license": "MIT",
-  "version": "2020.12.09",
+  "version": "2020.12.12",
   "scripts": {
     "eslint": "eslint",
     "eslint:fix": "eslint --fix ./*.js ./src/*.js ./src/routes/**/*.svelte ./src/components/**/*.svelte",
@@ -32,10 +32,10 @@
     "sirv": "^1.0.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.12.10",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.12.1",
-    "@babel/preset-env": "^7.12.7",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
     "@babel/runtime": "^7.12.5",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -56,6 +56,6 @@
     "sapper": "^0.28.10",
     "svelte": "^3.31.0",
     "svelte-preprocess": "^4.6.1",
-    "tailwindcss": "^2.0.1"
+    "tailwindcss": "^2.0.2"
   }
 }
